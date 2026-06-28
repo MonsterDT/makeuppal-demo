@@ -6820,12 +6820,12 @@ body {
     </header>
 
     <div class="mall-tabs no-scrollbar" id="marketCatTabs">
-      <div class="mall-tab active" onclick="switchMarketCat(this, 'daren')">达人推荐</div>
-      <div class="mall-tab" onclick="switchMarketCat(this, 'ziying')">自营品牌</div>
-      <div class="mall-tab" onclick="switchMarketCat(this, 'hot')">热门榜</div>
-      <div class="mall-tab" onclick="switchMarketCat(this, 'gufeng')">国风专栏</div>
-      <div class="mall-tab" onclick="switchMarketCat(this, 'yinfa')">银发焕新</div>
-      <div class="mall-tab" onclick="switchMarketCat(this, 'star')">明星同款</div>
+      <div class="mall-tab active" onclick="switchMarketCat(this, 'lip')">💄 唇妆</div>
+      <div class="mall-tab" onclick="switchMarketCat(this, 'eye')">👁️ 眼妆</div>
+      <div class="mall-tab" onclick="switchMarketCat(this, 'base')">✨ 底妆</div>
+      <div class="mall-tab" onclick="switchMarketCat(this, 'skincare')">🧴 护肤</div>
+      <div class="mall-tab" onclick="switchMarketCat(this, 'tools')">🧹 工具</div>
+      <div class="mall-tab" onclick="switchMarketCat(this, 'gift')">🎁 礼盒</div>
     </div>
 
     <div class="mall-sub-tabs" id="marketSubTabs">
@@ -6838,14 +6838,14 @@ body {
 
     <div class="brand-strip">
       <div class="section-header">
-        <div class="section-title" style="font-size: var(--font-size-md);">品牌官方</div>
+        <div class="section-title" style="font-size: var(--font-size-md);">热门品牌</div>
         <a class="section-more" href="#" onclick="event.preventDefault(); switchTab('brand')">品牌合作 →</a>
       </div>
       <div class="brand-card" onclick="showToast('进入品牌页')">
         <div class="brand-logo">Y</div>
         <div class="brand-info">
-          <h4>YSL 圣罗兰 <span class="verified">官方认证</span></h4>
-          <p>官方妆容模板 12 个 · 评分 4.9</p>
+          <h4>YSL 圣罗兰 <span class="verified">官方授权</span></h4>
+          <p>正品美妆产品 · 官方授权经销商</p>
         </div>
         <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); showToast('进店');">进店</button>
       </div>
@@ -6853,7 +6853,7 @@ body {
         <div class="brand-logo" style="background: linear-gradient(135deg, var(--color-accent), var(--color-primary-light));">L</div>
         <div class="brand-info">
           <h4>LANCÔME <span class="verified">官方</span></h4>
-          <p>官方妆容模板 8 个 · 评分 4.8</p>
+          <p>正品美妆产品 · 官方授权经销商</p>
         </div>
         <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); showToast('进店');">进店</button>
       </div>
@@ -6861,7 +6861,7 @@ body {
 
     <div class="section-sm">
       <div class="section-header">
-        <div class="section-title" style="font-size: var(--font-size-md);">热门妆容</div>
+        <div class="section-title" style="font-size: var(--font-size-md);">精选好物</div>
       </div>
     </div>
 
@@ -10916,12 +10916,12 @@ body {
   }
 
   const marketSubCats = {
-    daren: ['全部', '新品上市', '达人同款', '口碑好物', '限时特惠', '礼盒套装'],
-    ziying: ['全部', 'YSL', 'Dior', 'Chanel', 'Armani', '雅诗兰黛', '兰蔻'],
-    hot: ['全部', '热卖TOP10', '新品榜', '好评榜', '回购榜', '性价比榜'],
-    gufeng: ['全部', '唐妆系列', '宋妆系列', '明妆系列', '汉妆系列', '戏曲妆'],
-    yinfa: ['全部', '减龄淡妆', '气质日常', '婚礼妆容', '聚会妆', '护肤保养'],
-    star: ['全部', '日常同款', '红毯同款', '杂志同款', '舞台同款', '古装同款']
+    lip: ['全部', '哑光', '滋润', '唇釉', '礼盒'],
+    eye: ['全部', '眼影盘', '睫毛膏', '眉笔'],
+    base: ['全部', '粉底液', '气垫', '遮瑕', '散粉'],
+    skincare: ['全部', '精华', '面霜', '护肤套装'],
+    tools: ['全部', '美妆蛋', '化妆刷', '护肤工具'],
+    gift: ['全部', '大牌礼盒', '平价礼盒', '情侣礼盒']
   };
 
   const makeupImageMap = {
@@ -10942,211 +10942,155 @@ body {
   };
 
   const marketProducts = {
-    daren: {
+    lip: {
       all: [
-        { id: 'p1', name: '法式慵懒日常妆', price: 60, sales: '2.3万', img: 'product-2.jpg', tag: '热销', author: '美妆达人Luna' },
-        { id: 'p2', name: '元气少女腮红妆', price: 40, sales: '1.8万', img: 'product-3.jpg', tag: '', author: '小甜甜' },
-        { id: 'p3', name: '通勤大地色系', price: 35, sales: '3.1万', img: 'product-1.jpg', tag: '', author: '职场博主Amy' },
-        { id: 'p4', name: '复古港风红唇妆', price: 80, sales: '5千', img: 'product-4.jpg', tag: '新品', author: '复古美人' },
-        { id: 'p7', name: '日系透明感裸妆', price: 45, sales: '1.2万', img: 'product-3.jpg', tag: '', author: '日系少女' },
-        { id: 'p8', name: '韩系水光肌妆容', price: 50, sales: '1.6万', img: 'product-2.jpg', tag: '热销', author: '韩系欧尼' },
+        { id: 'p1', name: 'YSL 小金条口红 #1966', price: 398, sales: '2.3万', img: 'product-lip1.jpg', tag: '热销', brand: 'YSL 圣罗兰' },
+        { id: 'p2', name: 'Dior 烈艳蓝金唇膏 #999', price: 380, sales: '1.8万', img: 'product-lip2.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p3', name: 'Tom Ford 黑管口红 #16', price: 468, sales: '3.1万', img: 'product-lip3.jpg', tag: '断货王', brand: 'Tom Ford' },
+        { id: 'p4', name: 'Chanel 可可小姐口红 #58', price: 358, sales: '5千', img: 'product-lip4.jpg', tag: '新品', brand: 'Chanel 香奈儿' },
+        { id: 'p5', name: 'Armani 红管唇釉 #405', price: 350, sales: '1.6万', img: 'product-lip5.jpg', tag: '烂番茄', brand: 'Armani 阿玛尼' },
+        { id: 'p6', name: 'MAC 子弹头 #ruby woo', price: 195, sales: '1.2万', img: 'product-lip6.jpg', tag: '', brand: 'MAC 魅可' },
       ],
-      '新品上市': [
-        { id: 'p4', name: '复古港风红唇妆', price: 80, sales: '5千', img: 'product-4.jpg', tag: '新品', author: '复古美人' },
-        { id: 'p5', name: '春日樱花妆', price: 55, sales: '1千', img: 'product-3.jpg', tag: '新品', author: '小樱' },
-        { id: 'p9', name: '夏日清透晒伤妆', price: 48, sales: '2千', img: 'product-3.jpg', tag: '新品', author: '夏日风' },
+      '哑光': [
+        { id: 'p1', name: 'YSL 小金条口红 #1966', price: 398, sales: '2.3万', img: 'product-lip1.jpg', tag: '热销', brand: 'YSL 圣罗兰' },
+        { id: 'p3', name: 'Tom Ford 黑管口红 #16', price: 468, sales: '3.1万', img: 'product-lip3.jpg', tag: '断货王', brand: 'Tom Ford' },
+        { id: 'p6', name: 'MAC 子弹头 #ruby woo', price: 195, sales: '1.2万', img: 'product-lip6.jpg', tag: '', brand: 'MAC 魅可' },
       ],
-      '达人同款': [
-        { id: 'p1', name: '法式慵懒日常妆', price: 60, sales: '2.3万', img: 'product-2.jpg', tag: '热销', author: '美妆达人Luna' },
-        { id: 'p2', name: '元气少女腮红妆', price: 40, sales: '1.8万', img: 'product-3.jpg', tag: '', author: '小甜甜' },
-        { id: 'p7', name: '日系透明感裸妆', price: 45, sales: '1.2万', img: 'product-3.jpg', tag: '', author: '日系少女' },
+      '滋润': [
+        { id: 'p2', name: 'Dior 烈艳蓝金唇膏 #999', price: 380, sales: '1.8万', img: 'product-lip2.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p4', name: 'Chanel 可可小姐口红 #58', price: 358, sales: '5千', img: 'product-lip4.jpg', tag: '新品', brand: 'Chanel 香奈儿' },
+        { id: 'p5', name: 'Armani 红管唇釉 #405', price: 350, sales: '1.6万', img: 'product-lip5.jpg', tag: '烂番茄', brand: 'Armani 阿玛尼' },
       ],
-      '口碑好物': [
-        { id: 'p3', name: '通勤大地色系', price: 35, sales: '3.1万', img: 'product-1.jpg', tag: '', author: '职场博主Amy' },
-        { id: 'p1', name: '法式慵懒日常妆', price: 60, sales: '2.3万', img: 'product-2.jpg', tag: '热销', author: '美妆达人Luna' },
-        { id: 'p8', name: '韩系水光肌妆容', price: 50, sales: '1.6万', img: 'product-2.jpg', tag: '好评', author: '韩系欧尼' },
+      '唇釉': [
+        { id: 'p5', name: 'Armani 红管唇釉 #405', price: 350, sales: '1.6万', img: 'product-lip5.jpg', tag: '烂番茄', brand: 'Armani 阿玛尼' },
+        { id: 'p7', name: '3CE 丝绒唇釉 #taupe', price: 168, sales: '2.8万', img: 'product-lip7.jpg', tag: '平替', brand: '3CE' },
       ],
-      '限时特惠': [
-        { id: 'p2', name: '元气少女腮红妆', price: 29, sales: '1.8万', img: 'product-3.jpg', tag: '特惠', author: '小甜甜' },
-        { id: 'p3', name: '通勤大地色系', price: 25, sales: '3.1万', img: 'product-1.jpg', tag: '特惠', author: '职场博主Amy' },
-        { id: 'p7', name: '日系透明感裸妆', price: 29, sales: '1.2万', img: 'product-3.jpg', tag: '特惠', author: '日系少女' },
-      ],
-      '礼盒套装': [
-        { id: 'p6', name: '新手入门妆教礼盒', price: 128, sales: '8千', img: 'product-2.jpg', tag: '礼盒', author: '美妆达人Luna' },
-        { id: 'p6b', name: '约会必备妆容礼盒', price: 168, sales: '5千', img: 'product-3.jpg', tag: '礼盒', author: '恋爱达人' },
+      '礼盒': [
+        { id: 'p8', name: 'YSL 圣诞限定口红礼盒', price: 1280, sales: '8千', img: 'product-lip礼盒.jpg', tag: '礼盒', brand: 'YSL 圣罗兰' },
+        { id: 'p9', name: 'Dior 迪奥小姐唇膏礼盒', price: 1080, sales: '5千', img: 'product-lip礼盒2.jpg', tag: '礼盒', brand: 'Dior 迪奥' },
       ],
     },
-    ziying: {
+    eye: {
       all: [
-        { id: 'p10', name: 'YSL 红唇派对妆', price: 99, sales: '4.5万', img: 'product-2.jpg', tag: '热销', author: 'YSL 圣罗兰' },
-        { id: 'p11', name: 'Dior 迪奥花漾妆', price: 108, sales: '3.2万', img: 'product-3.jpg', tag: '', author: 'Dior 迪奥' },
-        { id: 'p12', name: 'Chanel 香奈儿山茶花', price: 128, sales: '2.8万', img: 'product-4.jpg', tag: '新品', author: 'Chanel 香奈儿' },
-        { id: 'p13', name: 'Armani 权力底妆', price: 88, sales: '1.5万', img: 'product-1.jpg', tag: '', author: 'Armani 阿玛尼' },
-        { id: 'p14', name: '雅诗兰黛 持妆无瑕', price: 78, sales: '2.1万', img: 'product-1.jpg', tag: '', author: 'Estee Lauder' },
-        { id: 'p15', name: '兰蔻 菁纯玫瑰妆', price: 118, sales: '1.9万', img: 'product-3.jpg', tag: '', author: 'LANCÔME 兰蔻' },
+        { id: 'p10', name: 'Tom Ford 四色眼影盘 #30', price: 698, sales: '4.5万', img: 'product-eye1.jpg', tag: '经典', brand: 'Tom Ford' },
+        { id: 'p11', name: 'Dior 五色眼影 #696', price: 608, sales: '3.2万', img: 'product-eye2.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p12', name: 'Chanel 四色眼影 #268', price: 628, sales: '2.8万', img: 'product-eye3.jpg', tag: '大地色', brand: 'Chanel 香奈儿' },
+        { id: 'p13', name: 'Urban Decay 衰败城市眼影盘', price: 398, sales: '1.5万', img: 'product-eye4.jpg', tag: '爆款', brand: 'Urban Decay' },
+        { id: 'p14', name: '3CE 九宫格眼影盘 #overtake', price: 258, sales: '2.1万', img: 'product-eye5.jpg', tag: '平价王', brand: '3CE' },
+        { id: 'p15', name: '完美日记 动物眼影盘', price: 129, sales: '1.9万', img: 'product-eye6.jpg', tag: '国货', brand: '完美日记' },
       ],
-      'YSL': [
-        { id: 'p10', name: 'YSL 红唇派对妆', price: 99, sales: '4.5万', img: 'product-2.jpg', tag: '热销', author: 'YSL 圣罗兰' },
-        { id: 'p10b', name: 'YSL 小金条哑光唇', price: 108, sales: '3.2万', img: 'product-4.jpg', tag: '', author: 'YSL 圣罗兰' },
-        { id: 'p10c', name: 'YSL 黑鸦片香水妆', price: 128, sales: '1.8万', img: 'product-2.jpg', tag: '新品', author: 'YSL 圣罗兰' },
+      '眼影盘': [
+        { id: 'p10', name: 'Tom Ford 四色眼影盘 #30', price: 698, sales: '4.5万', img: 'product-eye1.jpg', tag: '经典', brand: 'Tom Ford' },
+        { id: 'p11', name: 'Dior 五色眼影 #696', price: 608, sales: '3.2万', img: 'product-eye2.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p12', name: 'Chanel 四色眼影 #268', price: 628, sales: '2.8万', img: 'product-eye3.jpg', tag: '大地色', brand: 'Chanel 香奈儿' },
       ],
-      'Dior': [
-        { id: 'p11', name: 'Dior 迪奥花漾妆', price: 108, sales: '3.2万', img: 'product-3.jpg', tag: '', author: 'Dior 迪奥' },
-        { id: 'p11b', name: 'Dior 烈艳蓝金唇妆', price: 118, sales: '2.8万', img: 'product-4.jpg', tag: '热销', author: 'Dior 迪奥' },
+      '睫毛膏': [
+        { id: 'p16', name: 'Dior 惊艳秀场睫毛膏', price: 318, sales: '1.8万', img: 'product-mascara.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p17', name: '兰蔻 天才睫毛膏', price: 298, sales: '2.3万', img: 'product-mascara2.jpg', tag: '浓密', brand: 'LANCÔME 兰蔻' },
       ],
-      'Chanel': [
-        { id: 'p12', name: 'Chanel 香奈儿山茶花', price: 128, sales: '2.8万', img: 'product-4.jpg', tag: '新品', author: 'Chanel 香奈儿' },
-        { id: 'p12b', name: 'Chanel 可可小姐唇妆', price: 138, sales: '2.1万', img: 'product-2.jpg', tag: '', author: 'Chanel 香奈儿' },
-      ],
-      'Armani': [
-        { id: 'p13', name: 'Armani 权力底妆', price: 88, sales: '1.5万', img: 'product-1.jpg', tag: '', author: 'Armani 阿玛尼' },
-        { id: 'p13b', name: 'Armani 红管唇釉妆', price: 98, sales: '1.9万', img: 'product-4.jpg', tag: '热销', author: 'Armani 阿玛尼' },
-      ],
-      '雅诗兰黛': [
-        { id: 'p14', name: '雅诗兰黛 持妆无瑕', price: 78, sales: '2.1万', img: 'product-1.jpg', tag: '', author: 'Estee Lauder' },
-        { id: 'p14b', name: '雅诗兰黛 小棕瓶护肤妆', price: 88, sales: '1.6万', img: 'product-1.jpg', tag: '', author: 'Estee Lauder' },
-      ],
-      '兰蔻': [
-        { id: 'p15', name: '兰蔻 菁纯玫瑰妆', price: 118, sales: '1.9万', img: 'product-3.jpg', tag: '', author: 'LANCÔME 兰蔻' },
-        { id: 'p15b', name: '兰蔻 小黑瓶肌底妆', price: 108, sales: '2.3万', img: 'product-1.jpg', tag: '热销', author: 'LANCÔME 兰蔻' },
+      '眉笔': [
+        { id: 'p18', name: '植村秀 砍刀眉笔', price: 198, sales: '3.5万', img: 'product-brow.jpg', tag: '专业', brand: 'shu uemura 植村秀' },
+        { id: 'p19', name: 'Anastasia 眉膏', price: 168, sales: '2.1万', img: 'product-brow2.jpg', tag: '持久', brand: 'Anastasia' },
       ],
     },
-    hot: {
+    base: {
       all: [
-        { id: 'p20', name: '热卖TOP1 法式红唇', price: 60, sales: '10万+', img: 'product-2.jpg', tag: 'TOP1', author: '美妆达人' },
-        { id: 'p21', name: '热卖TOP2 通勤大地', price: 35, sales: '8.5万', img: 'product-1.jpg', tag: 'TOP2', author: '职场博主' },
-        { id: 'p22', name: '热卖TOP3 日系裸妆', price: 45, sales: '7.2万', img: 'product-3.jpg', tag: 'TOP3', author: '日系达人' },
-        { id: 'p20b', name: '热卖TOP4 韩系水光', price: 50, sales: '6.8万', img: 'product-2.jpg', tag: 'TOP4', author: '韩系博主' },
-        { id: 'p20c', name: '热卖TOP5 元气腮红', price: 40, sales: '5.9万', img: 'product-3.jpg', tag: 'TOP5', author: '少女博主' },
-        { id: 'p20d', name: '热卖TOP6 复古港风', price: 55, sales: '5.2万', img: 'product-4.jpg', tag: 'TOP6', author: '复古达人' },
+        { id: 'p20', name: '雅诗兰黛 DW 粉底液', price: 458, sales: '10万+', img: 'product-foundation1.jpg', tag: '油皮亲妈', brand: 'Estee Lauder 雅诗兰黛' },
+        { id: 'p21', name: '兰蔻 持妆粉底液', price: 428, sales: '8.5万', img: 'product-foundation2.jpg', tag: '持久', brand: 'LANCÔME 兰蔻' },
+        { id: 'p22', name: '阿玛尼 权力粉底液', price: 588, sales: '7.2万', img: 'product-foundation3.jpg', tag: '轻薄', brand: 'Armani 阿玛尼' },
+        { id: 'p23', name: 'YSL 明彩透亮粉底液', price: 498, sales: '6.8万', img: 'product-foundation4.jpg', tag: '光泽肌', brand: 'YSL 圣罗兰' },
+        { id: 'p24', name: 'MAC 定制无暇粉底液', price: 328, sales: '5.9万', img: 'product-foundation5.jpg', tag: '遮瑕', brand: 'MAC 魅可' },
+        { id: 'p25', name: 'Bobbi Brown 虫草粉底液', price: 488, sales: '5.2万', img: 'product-foundation6.jpg', tag: '养肤', brand: 'Bobbi Brown' },
       ],
-      '热卖TOP10': [
-        { id: 'p20', name: '热卖TOP1 法式红唇', price: 60, sales: '10万+', img: 'product-2.jpg', tag: 'TOP1', author: '美妆达人' },
-        { id: 'p21', name: '热卖TOP2 通勤大地', price: 35, sales: '8.5万', img: 'product-1.jpg', tag: 'TOP2', author: '职场博主' },
-        { id: 'p22', name: '热卖TOP3 日系裸妆', price: 45, sales: '7.2万', img: 'product-3.jpg', tag: 'TOP3', author: '日系达人' },
-        { id: 'p20b', name: '热卖TOP4 韩系水光', price: 50, sales: '6.8万', img: 'product-2.jpg', tag: 'TOP4', author: '韩系博主' },
-        { id: 'p20c', name: '热卖TOP5 元气腮红', price: 40, sales: '5.9万', img: 'product-3.jpg', tag: 'TOP5', author: '少女博主' },
-        { id: 'p20d', name: '热卖TOP6 复古港风', price: 55, sales: '5.2万', img: 'product-4.jpg', tag: 'TOP6', author: '复古达人' },
+      '粉底液': [
+        { id: 'p20', name: '雅诗兰黛 DW 粉底液', price: 458, sales: '10万+', img: 'product-foundation1.jpg', tag: '油皮亲妈', brand: 'Estee Lauder 雅诗兰黛' },
+        { id: 'p21', name: '兰蔻 持妆粉底液', price: 428, sales: '8.5万', img: 'product-foundation2.jpg', tag: '持久', brand: 'LANCÔME 兰蔻' },
+        { id: 'p22', name: '阿玛尼 权力粉底液', price: 588, sales: '7.2万', img: 'product-foundation3.jpg', tag: '轻薄', brand: 'Armani 阿玛尼' },
       ],
-      '新品榜': [
-        { id: 'p23', name: '新品 夏日清透妆', price: 55, sales: '5千', img: 'product-4.jpg', tag: '新品', author: '夏日限定' },
-        { id: 'p23b', name: '新品 多巴胺妆容', price: 58, sales: '4千', img: 'product-3.jpg', tag: '新品', author: '潮流达人' },
-        { id: 'p23c', name: '新品 Y2K辣妹妆', price: 62, sales: '3千', img: 'product-2.jpg', tag: '新品', author: '千禧女孩' },
+      '气垫': [
+        { id: 'p26', name: 'YSL 明彩气垫', price: 358, sales: '5千', img: 'product-cushion1.jpg', tag: '新品', brand: 'YSL 圣罗兰' },
+        { id: 'p27', name: 'Dior 雪晶灵气垫', price: 388, sales: '4千', img: 'product-cushion2.jpg', tag: '', brand: 'Dior 迪奥' },
+        { id: 'p28', name: '爱敬age20气垫', price: 158, sales: '3.2万', img: 'product-cushion3.jpg', tag: '平价', brand: '爱敬' },
       ],
-      '好评榜': [
-        { id: 'p20', name: '好评TOP1 法式红唇', price: 60, sales: '10万+', img: 'product-2.jpg', tag: '好评', author: '美妆达人' },
-        { id: 'p21', name: '好评TOP2 通勤大地', price: 35, sales: '8.5万', img: 'product-1.jpg', tag: '好评', author: '职场博主' },
-        { id: 'p22', name: '好评TOP3 日系裸妆', price: 45, sales: '7.2万', img: 'product-3.jpg', tag: '好评', author: '日系达人' },
+      '遮瑕': [
+        { id: 'p29', name: 'NARS 遮瑕液', price: 238, sales: '2.8万', img: 'product-concealer1.jpg', tag: '种草', brand: 'NARS' },
+        { id: 'p30', name: 'IPSA 茵芙莎遮瑕', price: 258, sales: '1.5万', img: 'product-concealer2.jpg', tag: '调色', brand: 'IPSA 茵芙莎' },
       ],
-      '回购榜': [
-        { id: 'p21', name: '回购王 通勤大地', price: 35, sales: '8.5万', img: 'product-1.jpg', tag: '回购', author: '职场博主' },
-        { id: 'p20', name: '回购榜2 法式红唇', price: 60, sales: '10万+', img: 'product-2.jpg', tag: '回购', author: '美妆达人' },
-      ],
-      '性价比榜': [
-        { id: 'p21', name: '性价比王 通勤妆', price: 29, sales: '8.5万', img: 'product-1.jpg', tag: '超值', author: '职场博主' },
-        { id: 'p22', name: '性价比2 日系裸妆', price: 35, sales: '7.2万', img: 'product-3.jpg', tag: '超值', author: '日系达人' },
-        { id: 'p20c', name: '性价比3 元气腮红', price: 29, sales: '5.9万', img: 'product-3.jpg', tag: '超值', author: '少女博主' },
+      '散粉': [
+        { id: 'p31', name: '纪梵希 四宫格散粉', price: 398, sales: '3.2万', img: 'product-powder1.jpg', tag: '定妆', brand: 'Givenchy 纪梵希' },
+        { id: 'p32', name: 'RCMA 胡椒粉散粉', price: 128, sales: '2.5万', img: 'product-powder2.jpg', tag: '平价王', brand: 'RCMA' },
       ],
     },
-    gufeng: {
+    skincare: {
       all: [
-        { id: 'p30', name: '大唐盛世妆', price: 99, sales: '1.2万', img: 'product-4.jpg', tag: '热卖', author: '花西子' },
-        { id: 'p31', name: '宋代素雅妆', price: 79, sales: '8千', img: 'product-3.jpg', tag: '', author: '国风大师' },
-        { id: 'p32', name: '明代端庄妆', price: 89, sales: '6千', img: 'product-2.jpg', tag: '', author: '国风大师' },
-        { id: 'p33', name: '汉代典雅妆', price: 85, sales: '5千', img: 'product-1.jpg', tag: '', author: '汉服博主' },
-        { id: 'p34', name: '京剧旦角妆', price: 128, sales: '3千', img: 'product-4.jpg', tag: '精品', author: '戏曲大师' },
-        { id: 'p35', name: '敦煌飞天妆', price: 118, sales: '4千', img: 'product-4.jpg', tag: '热卖', author: '敦煌研究院' },
+        { id: 'p40', name: '兰蔻 小黑瓶精华肌底液', price: 898, sales: '2.1万', img: 'product-serum1.jpg', tag: '精华', brand: 'LANCÔME 兰蔻' },
+        { id: 'p41', name: '雅诗兰黛 小棕瓶精华', price: 698, sales: '1.8万', img: 'product-serum2.jpg', tag: '修护', brand: 'Estee Lauder 雅诗兰黛' },
+        { id: 'p42', name: 'SK-II 神仙水', price: 1180, sales: '5千', img: 'product-toner1.jpg', tag: '护肤', brand: 'SK-II' },
+        { id: 'p43', name: '海蓝之谜 精华面霜', price: 2180, sales: '8千', img: 'product-cream1.jpg', tag: '奢宠', brand: 'La Mer 海蓝之谜' },
+        { id: 'p44', name: '修丽可 CE 精华', price: 498, sales: '1.5万', img: 'product-serum3.jpg', tag: '抗氧化', brand: '修丽可' },
+        { id: 'p45', name: '娇韵诗 双萃精华', price: 568, sales: '2.5万', img: 'product-serum4.jpg', tag: '水油平衡', brand: 'CLARINS 娇韵诗' },
       ],
-      '唐妆系列': [
-        { id: 'p30', name: '大唐盛世妆', price: 99, sales: '1.2万', img: 'product-4.jpg', tag: '热卖', author: '花西子' },
-        { id: 'p30b', name: '唐宫夜宴妆', price: 108, sales: '8千', img: 'product-4.jpg', tag: '', author: '唐朝美人' },
-        { id: 'p30c', name: '贵妃醉酒妆', price: 118, sales: '6千', img: 'product-4.jpg', tag: '精品', author: '贵妃娘娘' },
+      '精华': [
+        { id: 'p40', name: '兰蔻 小黑瓶精华肌底液', price: 898, sales: '2.1万', img: 'product-serum1.jpg', tag: '精华', brand: 'LANCÔME 兰蔻' },
+        { id: 'p41', name: '雅诗兰黛 小棕瓶精华', price: 698, sales: '1.8万', img: 'product-serum2.jpg', tag: '修护', brand: 'Estee Lauder 雅诗兰黛' },
+        { id: 'p44', name: '修丽可 CE 精华', price: 498, sales: '1.5万', img: 'product-serum3.jpg', tag: '抗氧化', brand: '修丽可' },
       ],
-      '宋妆系列': [
-        { id: 'p31', name: '宋代素雅妆', price: 79, sales: '8千', img: 'product-3.jpg', tag: '', author: '国风大师' },
-        { id: 'p31b', name: '宋妆珍珠妆', price: 89, sales: '5千', img: 'product-3.jpg', tag: '', author: '宋朝美人' },
+      '面霜': [
+        { id: 'p43', name: '海蓝之谜 精华面霜', price: 2180, sales: '8千', img: 'product-cream1.jpg', tag: '奢宠', brand: 'La Mer 海蓝之谜' },
+        { id: 'p46', name: 'Olay 大红瓶面霜', price: 238, sales: '3.2万', img: 'product-cream2.jpg', tag: '抗老', brand: 'Olay 玉兰油' },
       ],
-      '明妆系列': [
-        { id: 'p32', name: '明代端庄妆', price: 89, sales: '6千', img: 'product-2.jpg', tag: '', author: '国风大师' },
-        { id: 'p32b', name: '明制汉服妆', price: 95, sales: '4千', img: 'product-2.jpg', tag: '', author: '大家闺秀' },
-      ],
-      '汉妆系列': [
-        { id: 'p33', name: '汉代典雅妆', price: 85, sales: '5千', img: 'product-1.jpg', tag: '', author: '汉服博主' },
-        { id: 'p33b', name: '汉代红妆', price: 88, sales: '4千', img: 'product-1.jpg', tag: '', author: '汉朝美人' },
-      ],
-      '戏曲妆': [
-        { id: 'p34', name: '京剧旦角妆', price: 128, sales: '3千', img: 'product-4.jpg', tag: '精品', author: '戏曲大师' },
-        { id: 'p34b', name: '昆曲闺门旦妆', price: 138, sales: '2千', img: 'product-4.jpg', tag: '精品', author: '昆曲大师' },
+      '护肤套装': [
+        { id: 'p47', name: '兰蔻 明星护肤三件套', price: 1680, sales: '5千', img: 'product-set1.jpg', tag: '套装', brand: 'LANCÔME 兰蔻' },
+        { id: 'p48', name: '雅诗兰黛 抗老紧致套装', price: 1280, sales: '4千', img: 'product-set2.jpg', tag: '套装', brand: 'Estee Lauder 雅诗兰黛' },
       ],
     },
-    yinfa: {
+    tools: {
       all: [
-        { id: 'p40', name: '减龄气质淡妆', price: 55, sales: '2.1万', img: 'product-1.jpg', tag: '热销', author: '优雅妈妈' },
-        { id: 'p41', name: '日常通勤气质妆', price: 45, sales: '1.8万', img: 'product-2.jpg', tag: '', author: '银发达人' },
-        { id: 'p42', name: '优雅妈妈婚礼妆', price: 99, sales: '5千', img: 'product-3.jpg', tag: '婚礼', author: '婚礼造型师' },
-        { id: 'p43', name: '同学聚会精致妆', price: 65, sales: '8千', img: 'product-4.jpg', tag: '', author: '优雅妈妈' },
-        { id: 'p44', name: '抗老护肤套装', price: 128, sales: '1.5万', img: 'product-1.jpg', tag: '套装', author: '皮肤科推荐' },
-        { id: 'p45', name: '气色提升三步法', price: 35, sales: '2.5万', img: 'product-3.jpg', tag: '热销', author: '银发美妆师' },
+        { id: 'p50', name: 'RT 蛋形美妆蛋', price: 48, sales: '3.5万', img: 'product-tool1.jpg', tag: '工具', brand: 'Real Techniques' },
+        { id: 'p51', name: '植村秀 55号粉底刷', price: 298, sales: '2.8万', img: 'product-tool2.jpg', tag: '上妆', brand: 'shu uemura 植村秀' },
+        { id: 'p52', name: 'MAC 化妆刷套装', price: 458, sales: '1.2万', img: 'product-tool3.jpg', tag: '专业', brand: 'MAC 魅可' },
+        { id: 'p53', name: '无印良品 化妆镜', price: 68, sales: '9千', img: 'product-tool4.jpg', tag: '便携', brand: 'MUJI 无印良品' },
+        { id: 'p54', name: '大创 眉毛印章', price: 28, sales: '2.5万', img: 'product-tool5.jpg', tag: '新手', brand: '大创' },
       ],
-      '减龄淡妆': [
-        { id: 'p40', name: '减龄气质淡妆', price: 55, sales: '2.1万', img: 'product-1.jpg', tag: '热销', author: '优雅妈妈' },
-        { id: 'p40b', name: '年轻10岁秘诀', price: 65, sales: '1.5万', img: 'product-3.jpg', tag: '', author: '减龄达人' },
-        { id: 'p40c', name: '50+日常减龄妆', price: 48, sales: '1.8万', img: 'product-2.jpg', tag: '', author: '优雅姐姐' },
+      '美妆蛋': [
+        { id: 'p50', name: 'RT 蛋形美妆蛋', price: 48, sales: '3.5万', img: 'product-tool1.jpg', tag: '工具', brand: 'Real Techniques' },
+        { id: 'p55', name: 'Beautyblender 美妆蛋', price: 128, sales: '2.2万', img: 'product-tool6.jpg', tag: '进口', brand: 'Beautyblender' },
       ],
-      '气质日常': [
-        { id: 'p41', name: '日常通勤气质妆', price: 45, sales: '1.8万', img: 'product-2.jpg', tag: '', author: '银发达人' },
-        { id: 'p45', name: '气色提升三步法', price: 35, sales: '2.5万', img: 'product-3.jpg', tag: '热销', author: '银发美妆师' },
-        { id: 'p41b', name: '买菜出门快速妆', price: 25, sales: '3.2万', img: 'product-1.jpg', tag: '', author: '生活达人' },
+      '化妆刷': [
+        { id: 'p51', name: '植村秀 55号粉底刷', price: 298, sales: '2.8万', img: 'product-tool2.jpg', tag: '上妆', brand: 'shu uemura 植村秀' },
+        { id: 'p52', name: 'MAC 化妆刷套装', price: 458, sales: '1.2万', img: 'product-tool3.jpg', tag: '专业', brand: 'MAC 魅可' },
       ],
-      '婚礼妆容': [
-        { id: 'p42', name: '优雅妈妈婚礼妆', price: 99, sales: '5千', img: 'product-3.jpg', tag: '婚礼', author: '婚礼造型师' },
-        { id: 'p42b', name: '嫁女儿婚宴妆', price: 88, sales: '4千', img: 'product-4.jpg', tag: '婚礼', author: '喜娘' },
-      ],
-      '聚会妆': [
-        { id: 'p43', name: '同学聚会精致妆', price: 65, sales: '8千', img: 'product-4.jpg', tag: '', author: '优雅妈妈' },
-        { id: 'p43b', name: '生日宴端庄妆', price: 58, sales: '6千', img: 'product-2.jpg', tag: '', author: '生日主角' },
-        { id: 'p43c', name: '节日聚会喜庆妆', price: 52, sales: '7千', img: 'product-4.jpg', tag: '', author: '节日达人' },
-      ],
-      '护肤保养': [
-        { id: 'p44', name: '抗老护肤套装', price: 128, sales: '1.5万', img: 'product-1.jpg', tag: '套装', author: '皮肤科推荐' },
-        { id: 'p44b', name: '滋养保湿底妆', price: 68, sales: '1.2万', img: 'product-1.jpg', tag: '', author: '护肤专家' },
+      '护肤工具': [
+        { id: 'p56', name: 'ReFa 美容仪', price: 1998, sales: '1.1万', img: 'product-device1.jpg', tag: '美容仪', brand: 'ReFa' },
+        { id: 'p57', name: 'FOREO 洁面仪', price: 498, sales: '1.8万', img: 'product-device2.jpg', tag: '洁面', brand: 'FOREO' },
       ],
     },
-    star: {
+    gift: {
       all: [
-        { id: 'p50', name: '鞠婧祎同款日常妆', price: 78, sales: '3.5万', img: 'product-2.jpg', tag: '热销', author: '明星同款' },
-        { id: 'p51', name: '杨幂红毯女王妆', price: 99, sales: '2.8万', img: 'product-4.jpg', tag: '', author: '明星同款' },
-        { id: 'p52', name: '时尚芭莎封面妆', price: 88, sales: '1.2万', img: 'product-3.jpg', tag: '杂志', author: '时尚杂志' },
-        { id: 'p53', name: '舞台C位闪耀妆', price: 108, sales: '9千', img: 'product-4.jpg', tag: '舞台', author: '明星造型师' },
-        { id: 'p54', name: '长相思 小夭妆', price: 95, sales: '2.5万', img: 'product-3.jpg', tag: '古装', author: '影视剧同款' },
-        { id: 'p55', name: '刘亦菲神仙姐姐妆', price: 85, sales: '2.2万', img: 'product-3.jpg', tag: '热销', author: '明星同款' },
+        { id: 'p60', name: 'YSL 圣诞限定礼盒', price: 1280, sales: '1.2万', img: 'product-gift1.jpg', tag: '限定', brand: 'YSL 圣罗兰' },
+        { id: 'p61', name: 'Dior 迪奥小姐花漾礼盒', price: 1080, sales: '8千', img: 'product-gift2.jpg', tag: '经典', brand: 'Dior 迪奥' },
+        { id: 'p62', name: 'Chanel 香奈儿节日礼盒', price: 1580, sales: '6千', img: 'product-gift3.jpg', tag: '奢华', brand: 'Chanel 香奈儿' },
+        { id: 'p63', name: '兰蔻 玫瑰甄选礼盒', price: 880, sales: '5千', img: 'product-gift4.jpg', tag: '送女友', brand: 'LANCÔME 兰蔻' },
+        { id: 'p64', name: 'Tom Ford 私人调配礼盒', price: 2680, sales: '3千', img: 'product-gift5.jpg', tag: '顶级', brand: 'Tom Ford' },
+        { id: 'p65', name: '国风联名美妆礼盒', price: 688, sales: '4千', img: 'product-gift6.jpg', tag: '国风', brand: '花西子' },
       ],
-      '日常同款': [
-        { id: 'p50', name: '鞠婧祎同款日常妆', price: 78, sales: '3.5万', img: 'product-2.jpg', tag: '热销', author: '明星同款' },
-        { id: 'p55', name: '刘亦菲神仙姐姐妆', price: 85, sales: '2.2万', img: 'product-3.jpg', tag: '', author: '明星同款' },
-        { id: 'p50b', name: '赵露思甜妹妆', price: 72, sales: '2.8万', img: 'product-3.jpg', tag: '', author: '明星同款' },
+      '大牌礼盒': [
+        { id: 'p60', name: 'YSL 圣诞限定礼盒', price: 1280, sales: '1.2万', img: 'product-gift1.jpg', tag: '限定', brand: 'YSL 圣罗兰' },
+        { id: 'p61', name: 'Dior 迪奥小姐花漾礼盒', price: 1080, sales: '8千', img: 'product-gift2.jpg', tag: '经典', brand: 'Dior 迪奥' },
+        { id: 'p62', name: 'Chanel 香奈儿节日礼盒', price: 1580, sales: '6千', img: 'product-gift3.jpg', tag: '奢华', brand: 'Chanel 香奈儿' },
       ],
-      '红毯同款': [
-        { id: 'p51', name: '杨幂红毯女王妆', price: 99, sales: '2.8万', img: 'product-4.jpg', tag: '', author: '明星同款' },
-        { id: 'p51b', name: '范冰冰红毯艳压妆', price: 118, sales: '1.5万', img: 'product-4.jpg', tag: '精品', author: '明星造型师' },
+      '平价礼盒': [
+        { id: 'p66', name: '完美日记 锦鲤礼盒', price: 288, sales: '3.2万', img: 'product-gift7.jpg', tag: '国货', brand: '完美日记' },
+        { id: 'p67', name: 'Colorkey 空气唇釉礼盒', price: 168, sales: '2.8万', img: 'product-gift8.jpg', tag: '平价', brand: 'Colorkey 珂拉琪' },
       ],
-      '杂志同款': [
-        { id: 'p52', name: '时尚芭莎封面妆', price: 88, sales: '1.2万', img: 'product-3.jpg', tag: '杂志', author: '时尚杂志' },
-        { id: 'p52b', name: 'VOGUE金九封面妆', price: 108, sales: '8千', img: 'product-2.jpg', tag: '杂志', author: '时尚杂志' },
-      ],
-      '舞台同款': [
-        { id: 'p53', name: '舞台C位闪耀妆', price: 108, sales: '9千', img: 'product-4.jpg', tag: '舞台', author: '明星造型师' },
-        { id: 'p53b', name: '演唱会女团妆', price: 98, sales: '1.1万', img: 'product-2.jpg', tag: '舞台', author: '女团造型师' },
-      ],
-      '古装同款': [
-        { id: 'p54', name: '长相思 小夭妆', price: 95, sales: '2.5万', img: 'product-3.jpg', tag: '古装', author: '影视剧同款' },
-        { id: 'p54b', name: '苍兰诀 小兰花妆', price: 88, sales: '2.1万', img: 'product-3.jpg', tag: '古装', author: '影视剧同款' },
-        { id: 'p54c', name: '甄嬛传 甄嬛妆', price: 92, sales: '1.8万', img: 'product-4.jpg', tag: '古装', author: '影视剧同款' },
+      '情侣礼盒': [
+        { id: 'p68', name: '野兽派 情侣香氛礼盒', price: 520, sales: '5千', img: 'product-gift9.jpg', tag: '浪漫', brand: '野兽派' },
+        { id: 'p69', name: '未知气味 情侣香水礼盒', price: 328, sales: '4.2万', img: 'product-gift10.jpg', tag: '小众', brand: '未知气味' },
       ],
     }
   };
 
-  let currentMarketCat = 'daren';
+  let currentMarketCat = 'lip';
   let currentMarketSub = 'all';
   let currentProduct = null;
 
@@ -11222,54 +11166,52 @@ body {
         <div class="product-detail-title">${p.name}</div>
         <div class="product-detail-price">
           <div class="pdf-price"><span>¥</span>${p.price}</div>
-          <div class="pdf-sales">${p.sales} 人已解锁</div>
+          <div class="pdf-sales">${p.sales} 人已购买</div>
         </div>
         <div class="product-detail-tags">
-          <span class="pdf-tag">AI 试妆</span>
-          <span class="pdf-tag">步骤教学</span>
-          <span class="pdf-tag">产品清单</span>
-          <span class="pdf-tag">永久有效</span>
+          <span class="pdf-tag">正品保证</span>
+          <span class="pdf-tag">官方授权</span>
+          <span class="pdf-tag">闪电发货</span>
+          <span class="pdf-tag">七天退换</span>
         </div>
         <div class="product-author">
-          <div class="author-avatar">${p.author.charAt(0)}</div>
+          <div class="author-avatar">${(p.brand || '商').charAt(0)}</div>
           <div class="author-info">
-            <div class="author-name">${p.author}</div>
-            <div class="author-desc">官方认证创作者 · 4.9分</div>
+            <div class="author-name">${p.brand || '官方店铺'}</div>
+            <div class="author-desc">官方授权经销商 · 正品保证</div>
           </div>
           <button class="btn btn-primary btn-sm">关注</button>
         </div>
       </div>
       <div class="product-detail-section">
-        <div class="pdf-section-title">妆容介绍</div>
+        <div class="pdf-section-title">商品介绍</div>
         <div class="pdf-desc">
-          这款妆容融合了当代流行元素与经典美学，适合各种场合。无论是日常通勤还是约会聚会，都能让你展现最佳状态。妆容重点突出眼部轮廓，搭配自然的唇色，整体呈现出高级又不失亲和力的感觉。
+          ${p.name} 是 ${p.brand || '知名品牌'} 旗下的明星产品，深受消费者喜爱。产品质地细腻丝滑，上妆效果自然持久，无论是日常使用还是重要场合都非常适合。让你的妆容更加精致动人。
         </div>
       </div>
       <div class="product-detail-section">
-        <div class="pdf-section-title">妆容步骤</div>
+        <div class="pdf-section-title">使用方法</div>
         <div class="pdf-steps">
           <div class="pdf-step">
             <div class="pdf-step-num">1</div>
-            <div class="pdf-step-text">底妆：取适量粉底液均匀点涂于面部，用湿美妆蛋轻轻拍开，打造无瑕通透的底妆效果。</div>
+            <div class="pdf-step-text">基础护肤后，取适量产品均匀涂抹于需要修饰的部位。</div>
           </div>
           <div class="pdf-step">
             <div class="pdf-step-num">2</div>
-            <div class="pdf-step-text">眼妆：先用浅棕色眼影大面积打底，再用深棕色加深眼尾和下眼睑，最后画上自然眼线。</div>
+            <div class="pdf-step-text">轻轻拍打或晕开，让产品与肌肤自然融合。</div>
           </div>
           <div class="pdf-step">
             <div class="pdf-step-num">3</div>
-            <div class="pdf-step-text">腮红：用腮红刷沾取适量腮红，从苹果肌向太阳穴方向轻轻扫开，营造自然好气色。</div>
-          </div>
-          <div class="pdf-step">
-            <div class="pdf-step-num">4</div>
-            <div class="pdf-step-text">唇妆：先用唇线笔勾勒唇形，再填充口红，最后用纸巾轻按一下，让妆效更持久。</div>
+            <div class="pdf-step-text">根据需要叠加或晕染，打造自然妆容效果。</div>
           </div>
         </div>
       </div>
       <div class="product-detail-section">
-        <div class="pdf-section-title">产品清单</div>
+        <div class="pdf-section-title">商品参数</div>
         <div class="pdf-desc" style="font-size: 13px; color: var(--color-text-secondary);">
-          粉底液 × 1、眼影盘 × 1、腮红 × 1、口红 × 1、眉笔 × 1、睫毛膏 × 1
+          品牌：${p.brand || '官方'}<br>
+          商品名称：${p.name}<br>
+          功效：持久显色、滋润保湿、打造精致妆容
         </div>
       </div>
       <div style="height: 80px;"></div>
