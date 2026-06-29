@@ -2784,6 +2784,449 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* ===== Face Consent Onboarding ===== */
+.face-consent-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+.face-consent-overlay.hidden {
+  display: none;
+}
+.fc-step {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  animation: fcFadeIn 0.4s ease;
+}
+.fc-step.active {
+  display: flex;
+}
+@keyframes fcFadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Splash Screen */
+.fc-step[data-fc-step="0"] {
+  position: relative;
+  overflow: hidden;
+}
+.fc-splash-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #fef5f0 0%, #fce8e0 50%, #f8d7cc 100%);
+}
+.fc-splash-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 80px 24px 40px;
+}
+.fc-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.fc-logo-text {
+  font-size: 42px;
+  font-weight: 800;
+  color: #333;
+  letter-spacing: 4px;
+}
+.fc-logo-sub {
+  font-size: 14px;
+  color: #c68b7c;
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-top: 2px;
+}
+.fc-tagline {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 40px;
+}
+.fc-splash-visual {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.fc-face-circle {
+  position: absolute;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.fc-face-1 {
+  width: 180px;
+  height: 180px;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Beautiful%20young%20Asian%20woman%20with%20natural%20makeup%2C%20dewy%20glowing%20skin%2C%20soft%20pink%20lipstick%2C%20clean%20beauty%20portrait%2C%20studio%20lighting&image_size=square');
+}
+.fc-face-2 {
+  width: 90px;
+  height: 90px;
+  top: 5%;
+  right: 5%;
+  background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Close%20up%20eye%20makeup%20on%20Asian%20woman%2C%20shimmering%20golden%20eyeshadow%2C%20long%20lashes%2C%20detailed%20eye%20beauty%20photography&image_size=square');
+}
+.fc-face-3 {
+  width: 120px;
+  height: 120px;
+  bottom: 20%;
+  right: 0;
+  background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Asian%20woman%20applying%20lipstick%2C%20red%20lip%20color%2C%20glamorous%20makeup%20look%2C%20beauty%20close%20up&image_size=square');
+}
+.fc-face-4 {
+  width: 100px;
+  height: 100px;
+  bottom: 10%;
+  left: 5%;
+  background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Flawless%20skin%20beauty%20portrait%20of%20Asian%20woman%2C%20natural%20makeup%2C%20soft%20lighting%2C%20clean%20skincare%20aesthetic&image_size=square');
+}
+.fc-splash-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.fc-slide-start {
+  width: 100%;
+  max-width: 300px;
+  height: 56px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(198, 139, 124, 0.2);
+}
+.fc-slide-btn {
+  width: 48px;
+  height: 48px;
+  background: #c68b7c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+.fc-slide-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #c68b7c;
+}
+.fc-legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #999;
+}
+.fc-legal span {
+  cursor: pointer;
+}
+.fc-legal .fc-dot {
+  cursor: default;
+}
+
+/* Header */
+.fc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 20px 16px;
+}
+.fc-back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+.fc-back-btn:active {
+  background: #f5f5f5;
+}
+.fc-progress {
+  flex: 1;
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.fc-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #c68b7c, #e8c4b8);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Content */
+.fc-content {
+  flex: 1;
+  padding: 8px 24px;
+  overflow-y: auto;
+}
+.fc-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin: 12px 0 12px;
+}
+.fc-subtitle {
+  font-size: 16px;
+  color: #888;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+/* Options */
+.fc-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.fc-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px;
+  background: #fff;
+  border: 2px solid #f0f0f0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.fc-option:active {
+  transform: scale(0.98);
+}
+.fc-option.selected {
+  border-color: #c68b7c;
+  background: #fef9f7;
+  box-shadow: 0 4px 20px rgba(198, 139, 124, 0.15);
+}
+.fc-option-radio {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.fc-option.selected .fc-option-radio {
+  border-color: #c68b7c;
+  background: #c68b7c;
+}
+.fc-option.selected .fc-option-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* List Options */
+.fc-list-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fc-list-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 18px;
+  background: #fff;
+  border: 2px solid #f0f0f0;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.fc-list-option:active {
+  transform: scale(0.98);
+}
+.fc-list-option.selected {
+  border-color: #c68b7c;
+  background: #fef9f7;
+}
+.fc-list-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.fc-list-text {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 500;
+  color: #333;
+}
+.fc-list-arrow {
+  color: #ccc;
+  flex-shrink: 0;
+}
+.fc-list-option.selected .fc-list-arrow {
+  color: #c68b7c;
+}
+
+/* Consent Card */
+.fc-consent-card {
+  background: linear-gradient(135deg, #fef9f7 0%, #fdf2ed 100%);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+  border: 1px solid #f5e6df;
+}
+.fc-consent-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #c68b7c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.fc-consent-text h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px;
+}
+.fc-consent-text ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fc-consent-text li {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+  padding-left: 16px;
+  position: relative;
+}
+.fc-consent-text li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #c68b7c;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Consent Checkbox */
+.fc-consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.fc-consent-checkbox:active {
+  background: #f9f9f9;
+}
+.fc-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all 0.2s ease;
+  margin-top: 1px;
+}
+.fc-checkbox.checked {
+  background: #c68b7c;
+  border-color: #c68b7c;
+  color: #fff;
+}
+.fc-consent-checkbox span {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+.fc-consent-checkbox b {
+  color: #c68b7c;
+  font-weight: 600;
+}
+
+/* Footer */
+.fc-footer {
+  padding: 16px 24px 32px;
+  background: #fff;
+}
+.fc-continue-btn {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 28px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #e0e0e0;
+  color: #999;
+}
+.fc-continue-btn:not(:disabled) {
+  background: linear-gradient(135deg, #c68b7c, #d4a090);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(198, 139, 124, 0.3);
+}
+.fc-continue-btn:not(:disabled):active {
+  transform: scale(0.98);
+}
+
 .onboarding-step {
   display: none;
   flex-direction: column;
@@ -7787,6 +8230,197 @@ body {
     <div style="height: 80px;"></div>
   </div>
 
+  <!-- ===== Face Consent Onboarding ===== -->
+  <div class="face-consent-overlay" id="face-consent-overlay">
+    <!-- Step 0: Splash / Welcome -->
+    <div class="fc-step active" data-fc-step="0">
+      <div class="fc-splash-bg"></div>
+      <div class="fc-splash-content">
+        <div class="fc-logo">
+          <span class="fc-logo-text">妆伴</span>
+          <span class="fc-logo-sub">MakeupPal</span>
+        </div>
+        <div class="fc-tagline">AI 驱动的智能美妆助手</div>
+        <div class="fc-splash-visual">
+          <div class="fc-face-circle fc-face-1"></div>
+          <div class="fc-face-circle fc-face-2"></div>
+          <div class="fc-face-circle fc-face-3"></div>
+          <div class="fc-face-circle fc-face-4"></div>
+        </div>
+        <div class="fc-splash-bottom">
+          <div class="fc-slide-start">
+            <div class="fc-slide-btn" id="fc-slide-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+            <span class="fc-slide-text">滑动开始</span>
+          </div>
+          <div class="fc-legal">
+            <span onclick="showToast('查看服务条款')">服务条款</span>
+            <span class="fc-dot">·</span>
+            <span onclick="showToast('查看隐私政策')">隐私政策</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1: What do you want help with? -->
+    <div class="fc-step" data-fc-step="1">
+      <div class="fc-header">
+        <button class="fc-back-btn" onclick="fcGoToPrev()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="fc-progress">
+          <div class="fc-progress-bar" style="width: 25%;"></div>
+        </div>
+      </div>
+      <div class="fc-content">
+        <h1 class="fc-title">你希望妆伴如何帮助你？</h1>
+        <p class="fc-subtitle">告诉我们你的需求，为你定制专属美妆体验</p>
+        <div class="fc-options">
+          <div class="fc-option" onclick="fcSelectOption(this, 'tryon')">
+            <div class="fc-option-radio"></div>
+            <span>虚拟试妆，体验不同妆容</span>
+          </div>
+          <div class="fc-option" onclick="fcSelectOption(this, 'learn')">
+            <div class="fc-option-radio"></div>
+            <span>了解适合自己的妆容风格</span>
+          </div>
+          <div class="fc-option" onclick="fcSelectOption(this, 'products')">
+            <div class="fc-option-radio"></div>
+            <span>获取美妆产品推荐</span>
+          </div>
+          <div class="fc-option" onclick="fcSelectOption(this, 'photos')">
+            <div class="fc-option-radio"></div>
+            <span>拍照上镜更好看</span>
+          </div>
+          <div class="fc-option" onclick="fcSelectOption(this, 'explore')">
+            <div class="fc-option-radio"></div>
+            <span>随便看看，探索一下</span>
+          </div>
+        </div>
+      </div>
+      <div class="fc-footer">
+        <button class="fc-continue-btn" id="fc-step1-btn" disabled onclick="fcGoToNext()">继续</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Face Data Consent -->
+    <div class="fc-step" data-fc-step="2">
+      <div class="fc-header">
+        <button class="fc-back-btn" onclick="fcGoToPrev()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="fc-progress">
+          <div class="fc-progress-bar" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="fc-content">
+        <h1 class="fc-title">面部信息授权</h1>
+        <p class="fc-subtitle">为了提供精准的 AI 美妆服务，我们需要收集你的面部信息</p>
+        
+        <div class="fc-consent-card">
+          <div class="fc-consent-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="fc-consent-text">
+            <h3>你的面部数据安全有保障</h3>
+            <ul>
+              <li>仅用于 AI 美妆分析，不作其他用途</li>
+              <li>数据加密存储，仅你本人可见</li>
+              <li>随时可以在设置中删除数据</li>
+              <li>符合国家个人信息保护法规</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fc-consent-checkbox" onclick="fcToggleConsent()">
+          <div class="fc-checkbox" id="fc-checkbox">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span>我已阅读并同意 <b>《面部信息授权协议》</b> 和 <b>《隐私政策》</b></span>
+        </div>
+      </div>
+      <div class="fc-footer">
+        <button class="fc-continue-btn" id="fc-step2-btn" disabled onclick="fcGoToNext()">同意并继续</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Where did you hear about us? -->
+    <div class="fc-step" data-fc-step="3">
+      <div class="fc-header">
+        <button class="fc-back-btn" onclick="fcGoToPrev()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="fc-progress">
+          <div class="fc-progress-bar" style="width: 75%;"></div>
+        </div>
+      </div>
+      <div class="fc-content">
+        <h1 class="fc-title">你是从哪里了解到妆伴的？</h1>
+        <p class="fc-subtitle">帮助我们更好地推广优质美妆服务</p>
+        <div class="fc-list-options">
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'xiaohongshu')">
+            <span class="fc-list-icon">📕</span>
+            <span class="fc-list-text">小红书</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'douyin')">
+            <span class="fc-list-icon">🎵</span>
+            <span class="fc-list-text">抖音</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'wechat')">
+            <span class="fc-list-icon">💬</span>
+            <span class="fc-list-text">微信/朋友圈</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'weibo')">
+            <span class="fc-list-icon">📱</span>
+            <span class="fc-list-text">微博</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'search')">
+            <span class="fc-list-icon">🌐</span>
+            <span class="fc-list-text">搜索引擎</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="fc-list-option" onclick="fcSelectListOption(this, 'friends')">
+            <span class="fc-list-icon">👥</span>
+            <span class="fc-list-text">朋友推荐</span>
+            <svg class="fc-list-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="fc-footer">
+        <button class="fc-continue-btn" id="fc-step3-btn" onclick="fcFinish()">稍后再说</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== Onboarding Overlay ===== -->
   <div class="onboarding-overlay" id="onboarding-overlay">
     <!-- Step 0: Welcome -->
@@ -11544,12 +12178,102 @@ body {
     console.log('Style toggled:', style, 'selected:', obSelectedStyles);
   }
 
+  // ===== Face Consent Onboarding =====
+  let fcStep = 0;
+  let fcSelectedNeed = '';
+  let fcConsentGiven = false;
+  let fcSelectedSource = '';
+
+  function fcGoToStep(step) {
+    fcStep = step;
+    document.querySelectorAll('.fc-step').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector('.fc-step[data-fc-step="' + step + '"]');
+    if (target) target.classList.add('active');
+  }
+
+  function fcGoToNext() {
+    if (fcStep < 3) {
+      fcGoToStep(fcStep + 1);
+    }
+  }
+
+  function fcGoToPrev() {
+    if (fcStep > 0) {
+      fcGoToStep(fcStep - 1);
+    }
+  }
+
+  function fcSelectOption(el, need) {
+    fcSelectedNeed = need;
+    document.querySelectorAll('.fc-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    const btn = document.getElementById('fc-step1-btn');
+    if (btn) btn.disabled = false;
+  }
+
+  function fcToggleConsent() {
+    fcConsentGiven = !fcConsentGiven;
+    const checkbox = document.getElementById('fc-checkbox');
+    if (checkbox) checkbox.classList.toggle('checked', fcConsentGiven);
+    const btn = document.getElementById('fc-step2-btn');
+    if (btn) btn.disabled = !fcConsentGiven;
+  }
+
+  function fcSelectListOption(el, source) {
+    fcSelectedSource = source;
+    document.querySelectorAll('.fc-list-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    const btn = document.getElementById('fc-step3-btn');
+    if (btn) {
+      btn.textContent = '完成';
+    }
+    setTimeout(() => {
+      fcFinish();
+    }, 300);
+  }
+
+  function fcFinish() {
+    const overlay = document.getElementById('face-consent-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    localStorage.setItem('fc_completed', 'true');
+    if (fcConsentGiven) {
+      localStorage.setItem('face_consent', 'granted');
+    }
+    const ob = document.getElementById('onboarding-overlay');
+    if (ob && !localStorage.getItem('ob_completed')) {
+      setTimeout(() => ob.classList.add('show'), 300);
+    }
+  }
+
+  function initFaceConsent() {
+    const overlay = document.getElementById('face-consent-overlay');
+    if (!overlay) return;
+    
+    if (localStorage.getItem('fc_completed')) {
+      overlay.classList.add('hidden');
+      const ob = document.getElementById('onboarding-overlay');
+      if (ob && !localStorage.getItem('ob_completed')) {
+        setTimeout(() => ob.classList.add('show'), 300);
+      }
+      return;
+    }
+
+    const slideBtn = document.getElementById('fc-slide-btn');
+    const slideStart = document.querySelector('.fc-slide-start');
+    if (slideStart) {
+      slideStart.addEventListener('click', function() {
+        fcGoToNext();
+      });
+    }
+  }
+
   function finishOnboarding() {
     console.log('finishOnboarding called');
     gpBalance += 100;
     updateGpDisplay();
     const ob = document.getElementById('onboarding-overlay');
     if (ob) ob.classList.remove('show');
+    localStorage.setItem('ob_completed', 'true');
     showToast('欢迎加入妆伴！+100 GP');
   }
 
@@ -11613,6 +12337,7 @@ body {
     startHeroCarousel();
     renderLibraryWaterfall();
     renderFaceProfileCards();
+    initFaceConsent();
     // setTimeout(showOnboarding, 500);
   });
 
