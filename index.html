@@ -771,6 +771,398 @@ body {
   background: var(--color-primary);
   color: #fff;
 }
+
+/* Algorithm Lab Panel */
+.algo-lab-btn {
+  position: absolute;
+  top: calc(var(--status-bar-height) + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 15;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  cursor: pointer;
+}
+.algo-lab-btn:active { transform: translateX(-50%) scale(0.95); }
+
+.algo-lab-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+.algo-lab-overlay.show { display: flex; animation: fadeIn 0.3s ease; }
+.algo-lab-panel {
+  width: 100%;
+  max-width: 100%;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.algo-lab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+.algo-lab-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+.algo-lab-icon { font-size: 22px; }
+.algo-lab-close {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  color: #666;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #f5f5f5;
+}
+.algo-lab-close:active { background: #e8e8e8; }
+
+.algo-lab-tabs {
+  display: flex;
+  padding: 12px 16px 0;
+  gap: 8px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.algo-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.algo-tab.active {
+  color: #ff6b6b;
+  border-bottom-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.05);
+}
+
+.algo-lab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px 100px;
+}
+.algo-tab-content { display: none; }
+.algo-tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+.algo-section { padding: 16px 0; }
+.algo-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.algo-badge {
+  padding: 3px 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.algo-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.algo-visual-area {
+  background: linear-gradient(135deg, #fef9f7 0%, #fdf2ed 100%);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #f5e6df;
+}
+.algo-visual-face {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.algo-face-svg { width: 70%; height: auto; }
+.algo-visual-stats {
+  display: flex;
+  justify-content: space-around;
+}
+.algo-stat-item { text-align: center; }
+.algo-stat-num {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff6b6b;
+}
+.algo-stat-label {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.algo-control-group {
+  margin-bottom: 20px;
+}
+.algo-control-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+}
+.algo-control-label-text {
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.algo-slider {
+  width: 100%;
+  accent-color: #ff6b6b;
+  height: 4px;
+  margin: 8px 0;
+}
+.algo-slider-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #999;
+}
+.algo-slider-values span:nth-child(2) {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.algo-segmented {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 3px;
+}
+.algo-seg {
+  flex: 1;
+  text-align: center;
+  padding: 8px 4px;
+  font-size: 12px;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.algo-seg.active {
+  background: #fff;
+  color: #ff6b6b;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.algo-chip-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.algo-chip {
+  padding: 7px 14px;
+  background: #f5f5f5;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.algo-chip.active {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  border-color: rgba(255, 107, 107, 0.3);
+  font-weight: 600;
+}
+
+.algo-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.algo-mode-item {
+  padding: 10px 6px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+.algo-mode-item.active {
+  background: rgba(255, 107, 107, 0.08);
+  border-color: #ff6b6b;
+}
+.algo-mode-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+.algo-mode-item.active .algo-mode-name { color: #ff6b6b; }
+.algo-mode-en {
+  font-size: 10px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.algo-color-picker {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.algo-color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.algo-color-dot.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #ff6b6b, 0 2px 8px rgba(255,107,107,0.4);
+  transform: scale(1.1);
+}
+
+.algo-info-card {
+  background: linear-gradient(135deg, #f0f4ff 0%, #eef2ff 100%);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #e0e7ff;
+  margin-top: 8px;
+}
+.algo-info-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4f46e5;
+  margin-bottom: 6px;
+}
+.algo-info-text {
+  font-size: 11px;
+  color: #6366f1;
+  line-height: 1.6;
+}
+
+.algo-blend-visual { padding: 16px; }
+.algo-blend-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.algo-blend-side { text-align: center; flex: 1; }
+.algo-blend-label {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
+}
+.algo-blend-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 100px;
+  margin: 0 auto;
+}
+.algo-blend-arrow {
+  color: #ff6b6b;
+  flex-shrink: 0;
+}
+.algo-blend-layers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.algo-layer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #fff;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #555;
+}
+.algo-layer-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.algo-layer-item span:nth-child(2) { flex: 1; }
+.algo-layer-alpha {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.algo-lab-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  display: flex;
+  gap: 12px;
+  padding: 14px 20px calc(14px + var(--safe-bottom));
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+.algo-lab-footer .btn { flex: 1; }
+
+.algo-visual-lips .algo-face-svg { width: 80%; }
+
 .switch {
   width: 44px;
   height: 24px;
@@ -7377,6 +7769,16 @@ body {
         </svg>
       </div>
 
+      <!-- Algorithm Lab Button -->
+      <div class="algo-lab-btn" onclick="openAlgoLab()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 3h6"/>
+          <path d="M10 3v6.5L4.5 19a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/>
+          <path d="M8 14h8"/>
+        </svg>
+        <span>算法Lab</span>
+      </div>
+
       <!-- Mode Switch -->
       <div class="mirror-mode-switch-v2">
         <span class="mirror-mode-btn-v2 active" data-mode="mirror" onclick="switchMirrorMode('mirror')">Mirror</span>
@@ -9044,6 +9446,419 @@ body {
       </div>
 
       <div style="height: 24px;"></div>
+    </div>
+  </div>
+
+  <!-- ===== Algorithm Lab Panel ===== -->
+  <div class="algo-lab-overlay" id="algo-lab-overlay" onclick="closeAlgoLab(event)">
+    <div class="algo-lab-panel" onclick="event.stopPropagation()">
+      <div class="algo-lab-header">
+        <div class="algo-lab-title">
+          <span class="algo-lab-icon">🧪</span>
+          <span>AR 试妆算法研发 Lab</span>
+        </div>
+        <div class="algo-lab-close" onclick="closeAlgoLab()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="algo-lab-tabs">
+        <div class="algo-tab active" data-tab="keypoints" onclick="switchAlgoTab('keypoints')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="5" r="1.5"/>
+            <circle cx="12" cy="19" r="1.5"/>
+            <circle cx="5" cy="12" r="1.5"/>
+            <circle cx="19" cy="12" r="1.5"/>
+            <circle cx="7" cy="7" r="1"/>
+            <circle cx="17" cy="7" r="1"/>
+            <circle cx="7" cy="17" r="1"/>
+            <circle cx="17" cy="17" r="1"/>
+          </svg>
+          关键点检测
+        </div>
+        <div class="algo-tab" data-tab="mapping" onclick="switchAlgoTab('mapping')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+            <line x1="9" y1="3" x2="9" y2="18"/>
+            <line x1="15" y1="6" x2="15" y2="21"/>
+            <line x1="3" y1="6" x2="21" y2="3"/>
+            <line x1="3" y1="21" x2="21" y2="18"/>
+          </svg>
+          纹理映射
+        </div>
+        <div class="algo-tab" data-tab="blending" onclick="switchAlgoTab('blending')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          色彩融合
+        </div>
+      </div>
+
+      <div class="algo-lab-content">
+        <!-- Keypoints Tab -->
+        <div class="algo-tab-content active" data-tab="keypoints">
+          <div class="algo-section">
+            <div class="algo-section-title">
+              <span>人脸关键点检测</span>
+              <span class="algo-badge">RetinaFace</span>
+            </div>
+            <div class="algo-desc">基于 RetinaFace 多任务联合学习模型，输出 106 个面部稠密关键点，覆盖五官轮廓与面部表情区域</div>
+
+            <div class="algo-visual-area">
+              <div class="algo-visual-face" id="algoFaceCanvas">
+                <svg class="algo-face-svg" viewBox="0 0 200 250" id="faceKeypointsSvg">
+                  <ellipse cx="100" cy="120" rx="65" ry="80" fill="#f5e6df" opacity="0.5"/>
+                  <g id="keypoints-group"></g>
+                  <g id="face-mesh-lines" stroke="#ff6b6b" stroke-width="0.5" opacity="0.3" fill="none"></g>
+                </svg>
+              </div>
+              <div class="algo-visual-stats">
+                <div class="algo-stat-item">
+                  <div class="algo-stat-num" id="kpCount">106</div>
+                  <div class="algo-stat-label">检测点数</div>
+                </div>
+                <div class="algo-stat-item">
+                  <div class="algo-stat-num" id="kpFps">30</div>
+                  <div class="algo-stat-label">FPS</div>
+                </div>
+                <div class="algo-stat-item">
+                  <div class="algo-stat-num" id="kpLatency">32</div>
+                  <div class="algo-stat-label">延迟(ms)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label">
+                <span>显示关键点</span>
+                <div class="switch active" id="kpShowSwitch" onclick="toggleKpShow()">
+                  <div class="switch-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label">
+                <span>显示网格线</span>
+                <div class="switch" id="kpMeshSwitch" onclick="toggleKpMesh()">
+                  <div class="switch-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label">
+                <span>显示编号</span>
+                <div class="switch" id="kpLabelSwitch" onclick="toggleKpLabel()">
+                  <div class="switch-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">关键点尺寸</div>
+              <input type="range" class="algo-slider" min="1" max="6" value="2.5" step="0.5" id="kpSizeSlider" oninput="updateKpSize(this.value)">
+              <div class="algo-slider-values">
+                <span>小</span>
+                <span id="kpSizeVal">2.5px</span>
+                <span>大</span>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">检测模型</div>
+              <div class="algo-segmented">
+                <div class="algo-seg active" onclick="selectKpModel(this, 'light')">轻量版</div>
+                <div class="algo-seg" onclick="selectKpModel(this, 'standard')">标准版</div>
+                <div class="algo-seg" onclick="selectKpModel(this, 'accurate')">高精度</div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">平滑滤波</div>
+              <div class="algo-segmented">
+                <div class="algo-seg" onclick="selectSmooth(this, 'none')">关闭</div>
+                <div class="algo-seg active" onclick="selectSmooth(this, 'ema')">EMA</div>
+                <div class="algo-seg" onclick="selectSmooth(this, 'kalman')">卡尔曼</div>
+              </div>
+            </div>
+
+            <div class="algo-info-card">
+              <div class="algo-info-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                算法原理
+              </div>
+              <div class="algo-info-text">RetinaFace 采用多尺度特征金字塔 + 多任务联合学习，同时输出人脸框、5个关键点、稠密轮廓。使用 MobileNet 主干网络实现端侧实时推理。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texture Mapping Tab -->
+        <div class="algo-tab-content" data-tab="mapping">
+          <div class="algo-section">
+            <div class="algo-section-title">
+              <span>妆容纹理映射</span>
+              <span class="algo-badge">Warping</span>
+            </div>
+            <div class="algo-desc">基于三角网格的仿射变换，将妆容纹理精准映射到面部对应区域，支持边缘羽化与动态形变</div>
+
+            <div class="algo-visual-area">
+              <div class="algo-visual-face algo-visual-lips">
+                <svg class="algo-face-svg" viewBox="0 0 200 200" id="lipsMappingSvg">
+                  <defs>
+                    <linearGradient id="lipGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:0.9" />
+                      <stop offset="100%" style="stop-color:#c44569;stop-opacity:0.95" />
+                    </linearGradient>
+                    <filter id="lipFeather">
+                      <feGaussianBlur stdDeviation="2" result="blur"/>
+                    </filter>
+                  </defs>
+                  <path id="upperLipPath" d="M60 90 Q75 70 100 75 Q125 70 140 90 Q120 105 100 100 Q80 105 60 90Z" fill="url(#lipGradient)"/>
+                  <path id="lowerLipPath" d="M60 90 Q75 130 100 135 Q125 130 140 90 Q120 105 100 100 Q80 105 60 90Z" fill="url(#lipGradient)"/>
+                  <g id="triangle-mesh" stroke="#fff" stroke-width="0.5" stroke-dasharray="2,2" fill="none" opacity="0.6"></g>
+                </svg>
+              </div>
+              <div class="algo-visual-stats">
+                <div class="algo-stat-item">
+                  <div class="algo-stat-num" id="triCount">128</div>
+                  <div class="algo-stat-label">三角面片</div>
+                </div>
+                <div class="algo-stat-item">
+                  <div class="algo-stat-num" id="warpQuality">98</div>
+                  <div class="algo-stat-label">贴合度%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">映射区域</div>
+              <div class="algo-chip-group">
+                <div class="algo-chip active" onclick="selectMapArea(this, 'lips')">唇部</div>
+                <div class="algo-chip" onclick="selectMapArea(this, 'eyeshadow')">眼影</div>
+                <div class="algo-chip" onclick="selectMapArea(this, 'blush')">腮红</div>
+                <div class="algo-chip" onclick="selectMapArea(this, 'foundation')">底妆</div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">边缘羽化强度</div>
+              <input type="range" class="algo-slider" min="0" max="100" value="35" id="featherSlider" oninput="updateFeather(this.value)">
+              <div class="algo-slider-values">
+                <span>0%</span>
+                <span id="featherVal">35%</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">形变强度</div>
+              <input type="range" class="algo-slider" min="0" max="100" value="80" id="warpSlider" oninput="updateWarp(this.value)">
+              <div class="algo-slider-values">
+                <span>低</span>
+                <span id="warpVal">80%</span>
+                <span>高</span>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">纹理映射方式</div>
+              <div class="algo-segmented">
+                <div class="algo-seg" onclick="selectMapMethod(this, 'affine')">仿射变换</div>
+                <div class="algo-seg active" onclick="selectMapMethod(this, 'triangle')">三角网格</div>
+                <div class="algo-seg" onclick="selectMapMethod(this, 'thinplate')">薄板样条</div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label">
+                <span>显示三角网格</span>
+                <div class="switch" id="meshSwitch" onclick="toggleMesh()">
+                  <div class="switch-thumb"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">表情适配</div>
+              <div class="algo-segmented">
+                <div class="algo-seg" onclick="selectExprFit(this, 'none')">关闭</div>
+                <div class="algo-seg active" onclick="selectExprFit(this, 'basic')">基础</div>
+                <div class="algo-seg" onclick="selectExprFit(this, 'full')">全表情</div>
+              </div>
+            </div>
+
+            <div class="algo-info-card">
+              <div class="algo-info-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                算法原理
+              </div>
+              <div class="algo-info-text">将面部区域划分为 Delaunay 三角网格，根据关键点位置计算每个三角形的仿射变换矩阵，逐像素映射妆容纹理。边缘羽化通过 Alpha 渐变实现自然过渡。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Blending Tab -->
+        <div class="algo-tab-content" data-tab="blending">
+          <div class="algo-section">
+            <div class="algo-section-title">
+              <span>色彩混合与真实感渲染</span>
+              <span class="algo-badge">Rendering</span>
+            </div>
+            <div class="algo-desc">多层色彩混合算法模拟真实化妆品光学特性，包含柔光、叠加、相乘等混合模式与光照材质</div>
+
+            <div class="algo-visual-area algo-blend-visual">
+              <div class="algo-blend-compare">
+                <div class="algo-blend-side">
+                  <div class="algo-blend-label">原肤色</div>
+                  <div class="algo-blend-swatch" style="background: linear-gradient(135deg, #f5d5c0 0%, #e8b89a 100%);"></div>
+                </div>
+                <div class="algo-blend-arrow">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </div>
+                <div class="algo-blend-side">
+                  <div class="algo-blend-label">混合后</div>
+                  <div class="algo-blend-swatch" id="blendResultSwatch" style="background: linear-gradient(135deg, #e89ab0 0%, #c47590 100%);"></div>
+                </div>
+              </div>
+              <div class="algo-blend-layers">
+                <div class="algo-layer-item">
+                  <div class="algo-layer-dot" style="background: #ff6b9d;"></div>
+                  <span>口红层 - Soft Light</span>
+                  <span class="algo-layer-alpha">70%</span>
+                </div>
+                <div class="algo-layer-item">
+                  <div class="algo-layer-dot" style="background: #fff; opacity: 0.8;"></div>
+                  <span>高光层 - Screen</span>
+                  <span class="algo-layer-alpha">40%</span>
+                </div>
+                <div class="algo-layer-item">
+                  <div class="algo-layer-dot" style="background: #8b4513;"></div>
+                  <span>阴影层 - Multiply</span>
+                  <span class="algo-layer-alpha">20%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">混合模式</div>
+              <div class="algo-mode-grid">
+                <div class="algo-mode-item active" onclick="selectBlendMode(this, 'soft-light')">
+                  <div class="algo-mode-name">柔光</div>
+                  <div class="algo-mode-en">Soft Light</div>
+                </div>
+                <div class="algo-mode-item" onclick="selectBlendMode(this, 'overlay')">
+                  <div class="algo-mode-name">叠加</div>
+                  <div class="algo-mode-en">Overlay</div>
+                </div>
+                <div class="algo-mode-item" onclick="selectBlendMode(this, 'multiply')">
+                  <div class="algo-mode-name">正片叠底</div>
+                  <div class="algo-mode-en">Multiply</div>
+                </div>
+                <div class="algo-mode-item" onclick="selectBlendMode(this, 'screen')">
+                  <div class="algo-mode-name">滤色</div>
+                  <div class="algo-mode-en">Screen</div>
+                </div>
+                <div class="algo-mode-item" onclick="selectBlendMode(this, 'normal')">
+                  <div class="algo-mode-name">正常</div>
+                  <div class="algo-mode-en">Normal</div>
+                </div>
+                <div class="algo-mode-item" onclick="selectBlendMode(this, 'color')">
+                  <div class="algo-mode-name">颜色</div>
+                  <div class="algo-mode-en">Color</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">不透明度</div>
+              <input type="range" class="algo-slider" min="0" max="100" value="75" id="opacitySlider" oninput="updateOpacity(this.value)">
+              <div class="algo-slider-values">
+                <span>0%</span>
+                <span id="opacityVal">75%</span>
+                <span>100%</span>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">口红颜色</div>
+              <div class="algo-color-picker">
+                <div class="algo-color-dot active" style="background: #c44569;" onclick="selectLipColor(this, '#c44569')"></div>
+                <div class="algo-color-dot" style="background: #e74c3c;" onclick="selectLipColor(this, '#e74c3c')"></div>
+                <div class="algo-color-dot" style="background: #9b59b6;" onclick="selectLipColor(this, '#9b59b6')"></div>
+                <div class="algo-color-dot" style="background: #e67e22;" onclick="selectLipColor(this, '#e67e22')"></div>
+                <div class="algo-color-dot" style="background: #d63031;" onclick="selectLipColor(this, '#d63031')"></div>
+                <div class="algo-color-dot" style="background: #fd79a8;" onclick="selectLipColor(this, '#fd79a8')"></div>
+                <div class="algo-color-dot" style="background: #6c5ce7;" onclick="selectLipColor(this, '#6c5ce7')"></div>
+                <div class="algo-color-dot" style="background: #00b894;" onclick="selectLipColor(this, '#00b894')"></div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">材质质感</div>
+              <div class="algo-segmented">
+                <div class="algo-seg active" onclick="selectTexture(this, 'matte')">哑光</div>
+                <div class="algo-seg" onclick="selectTexture(this, 'satin')">缎光</div>
+                <div class="algo-seg" onclick="selectTexture(this, 'gloss')">镜面</div>
+                <div class="algo-seg" onclick="selectTexture(this, 'pearl')">珠光</div>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">高光强度</div>
+              <input type="range" class="algo-slider" min="0" max="100" value="40" id="highlightSlider" oninput="updateHighlight(this.value)">
+              <div class="algo-slider-values">
+                <span>无</span>
+                <span id="highlightVal">40%</span>
+                <span>强</span>
+              </div>
+            </div>
+
+            <div class="algo-control-group">
+              <div class="algo-control-label-text">环境光照模拟</div>
+              <input type="range" class="algo-slider" min="0" max="100" value="50" id="lightingSlider" oninput="updateLighting(this.value)">
+              <div class="algo-slider-values">
+                <span>暗</span>
+                <span id="lightingVal">50%</span>
+                <span>亮</span>
+              </div>
+            </div>
+
+            <div class="algo-info-card">
+              <div class="algo-info-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                算法原理
+              </div>
+              <div class="algo-info-text">采用三层混合架构：底层柔光融合保留皮肤纹理，中层色彩叠加实现妆效，顶层高光模拟光线反射。结合法线贴图与菲涅尔效应实现材质质感。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="algo-lab-footer">
+        <button class="btn btn-outline" onclick="resetAlgoParams()">重置参数</button>
+        <button class="btn btn-primary" onclick="applyAlgoParams()">应用到试妆</button>
+      </div>
     </div>
   </div>
 
@@ -11415,6 +12230,476 @@ body {
     document.getElementById('reportDetailTitle').textContent = data.title;
     document.getElementById('reportDetailContent').innerHTML = data.html;
     switchTab('report-detail');
+  }
+
+  // ===== Algorithm Lab =====
+  let algoParams = {
+    keypoints: {
+      show: true,
+      mesh: false,
+      labels: false,
+      size: 2.5,
+      model: 'light',
+      smooth: 'ema'
+    },
+    mapping: {
+      area: 'lips',
+      feather: 35,
+      warp: 80,
+      method: 'triangle',
+      mesh: false,
+      exprFit: 'basic'
+    },
+    blending: {
+      mode: 'soft-light',
+      opacity: 75,
+      lipColor: '#c44569',
+      texture: 'matte',
+      highlight: 40,
+      lighting: 50
+    }
+  };
+
+  function openAlgoLab() {
+    document.getElementById('algo-lab-overlay').classList.add('show');
+    initFaceKeypoints();
+    initTriangleMesh();
+    updateBlendResult();
+  }
+  function closeAlgoLab(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('algo-lab-overlay').classList.remove('show');
+  }
+
+  function switchAlgoTab(tab) {
+    document.querySelectorAll('.algo-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.querySelectorAll('.algo-tab-content').forEach(c => c.classList.toggle('active', c.dataset.tab === tab));
+  }
+
+  // ===== Keypoints Module =====
+  function generateFaceKeypoints() {
+    const points = [];
+    const cx = 100, cy = 120;
+    const rx = 65, ry = 80;
+    
+    for (let i = 0; i < 36; i++) {
+      const angle = (i / 36) * Math.PI * 2 - Math.PI / 2;
+      points.push({
+        x: cx + rx * Math.cos(angle),
+        y: cy + ry * Math.sin(angle),
+        region: 'contour',
+        idx: points.length
+      });
+    }
+    
+    const browL = [
+      { x: 70, y: 80 }, { x: 78, y: 76 }, { x: 86, y: 74 }, { x: 94, y: 75 }, { x: 100, y: 78 }
+    ];
+    const browR = [
+      { x: 100, y: 78 }, { x: 106, y: 75 }, { x: 114, y: 74 }, { x: 122, y: 76 }, { x: 130, y: 80 }
+    ];
+    browL.forEach(p => { p.region = 'browL'; p.idx = points.length; points.push(p); });
+    browR.forEach(p => { p.region = 'browR'; p.idx = points.length; points.push(p); });
+    
+    const eyeL = [
+      { x: 72, y: 95 }, { x: 80, y: 90 }, { x: 90, y: 90 }, { x: 98, y: 95 },
+      { x: 90, y: 98 }, { x: 80, y: 98 }
+    ];
+    const eyeR = [
+      { x: 102, y: 95 }, { x: 110, y: 90 }, { x: 120, y: 90 }, { x: 128, y: 95 },
+      { x: 120, y: 98 }, { x: 110, y: 98 }
+    ];
+    eyeL.forEach(p => { p.region = 'eyeL'; p.idx = points.length; points.push(p); });
+    eyeR.forEach(p => { p.region = 'eyeR'; p.idx = points.length; points.push(p); });
+    
+    const nose = [
+      { x: 100, y: 100 }, { x: 95, y: 115 }, { x: 90, y: 125 },
+      { x: 100, y: 128 }, { x: 110, y: 125 }, { x: 105, y: 115 }
+    ];
+    nose.forEach(p => { p.region = 'nose'; p.idx = points.length; points.push(p); });
+    
+    const mouth = [
+      { x: 75, y: 150 }, { x: 85, y: 145 }, { x: 95, y: 148 }, { x: 100, y: 150 },
+      { x: 105, y: 148 }, { x: 115, y: 145 }, { x: 125, y: 150 },
+      { x: 115, y: 160 }, { x: 100, y: 163 }, { x: 85, y: 160 }
+    ];
+    mouth.forEach(p => { p.region = 'mouth'; p.idx = points.length; points.push(p); });
+    
+    return points;
+  }
+
+  function initFaceKeypoints() {
+    const group = document.getElementById('keypoints-group');
+    if (!group || group.children.length > 0) return;
+    
+    const points = generateFaceKeypoints();
+    const colors = {
+      contour: '#ff6b6b', browL: '#4ecdc4', browR: '#4ecdc4',
+      eyeL: '#45b7d1', eyeR: '#45b7d1', nose: '#f9ca24', mouth: '#ff6b9d'
+    };
+    
+    points.forEach((p, i) => {
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', p.x);
+      circle.setAttribute('cy', p.y);
+      circle.setAttribute('r', algoParams.keypoints.size);
+      circle.setAttribute('fill', colors[p.region] || '#ff6b6b');
+      circle.setAttribute('data-idx', p.idx);
+      circle.setAttribute('data-region', p.region);
+      circle.classList.add('kp-point');
+      group.appendChild(circle);
+      
+      if (i % 5 === 0) {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', p.x + 4);
+        text.setAttribute('y', p.y - 4);
+        text.setAttribute('font-size', '3');
+        text.setAttribute('fill', '#333');
+        text.setAttribute('data-idx', p.idx);
+        text.classList.add('kp-label');
+        text.textContent = p.idx;
+        text.style.display = 'none';
+        group.appendChild(text);
+      }
+    });
+    
+    const meshGroup = document.getElementById('face-mesh-lines');
+    if (meshGroup && meshGroup.children.length === 0) {
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const dx = points[i].x - points[j].x;
+          const dy = points[i].y - points[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 20) {
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', points[i].x);
+            line.setAttribute('y1', points[i].y);
+            line.setAttribute('x2', points[j].x);
+            line.setAttribute('y2', points[j].y);
+            meshGroup.appendChild(line);
+          }
+        }
+      }
+    }
+  }
+
+  function toggleKpShow() {
+    algoParams.keypoints.show = !algoParams.keypoints.show;
+    document.getElementById('kpShowSwitch').classList.toggle('active', algoParams.keypoints.show);
+    const points = document.querySelectorAll('.kp-point');
+    points.forEach(p => p.style.display = algoParams.keypoints.show ? '' : 'none');
+  }
+
+  function toggleKpMesh() {
+    algoParams.keypoints.mesh = !algoParams.keypoints.mesh;
+    document.getElementById('kpMeshSwitch').classList.toggle('active', algoParams.keypoints.mesh);
+    const mesh = document.getElementById('face-mesh-lines');
+    if (mesh) mesh.style.display = algoParams.keypoints.mesh ? '' : 'none';
+  }
+
+  function toggleKpLabel() {
+    algoParams.keypoints.labels = !algoParams.keypoints.labels;
+    document.getElementById('kpLabelSwitch').classList.toggle('active', algoParams.keypoints.labels);
+    const labels = document.querySelectorAll('.kp-label');
+    labels.forEach(l => l.style.display = algoParams.keypoints.labels ? '' : 'none');
+  }
+
+  function updateKpSize(val) {
+    algoParams.keypoints.size = parseFloat(val);
+    document.getElementById('kpSizeVal').textContent = val + 'px';
+    const points = document.querySelectorAll('.kp-point');
+    points.forEach(p => p.setAttribute('r', val));
+  }
+
+  function selectKpModel(el, model) {
+    algoParams.keypoints.model = model;
+    el.parentElement.querySelectorAll('.algo-seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    const configs = { light: { count: 68, fps: 60, latency: 15 }, standard: { count: 106, fps: 30, latency: 32 }, accurate: { count: 256, fps: 15, latency: 68 } };
+    const c = configs[model];
+    document.getElementById('kpCount').textContent = c.count;
+    document.getElementById('kpFps').textContent = c.fps;
+    document.getElementById('kpLatency').textContent = c.latency;
+    showToast('切换至' + el.textContent + '模型');
+  }
+
+  function selectSmooth(el, mode) {
+    algoParams.keypoints.smooth = mode;
+    el.parentElement.querySelectorAll('.algo-seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    showToast('平滑滤波：' + el.textContent);
+  }
+
+  // ===== Texture Mapping Module =====
+  function initTriangleMesh() {
+    const meshGroup = document.getElementById('triangle-mesh');
+    if (!meshGroup || meshGroup.children.length > 0) return;
+    
+    const tris = [
+      '60,90 100,75 80,105',
+      '100,75 140,90 120,105',
+      '60,90 80,105 100,100',
+      '100,75 120,105 100,100',
+      '140,90 120,105 100,100',
+      '60,90 75,130 100,100',
+      '75,130 100,135 100,100',
+      '100,135 125,130 100,100',
+      '125,130 140,90 100,100'
+    ];
+    
+    tris.forEach(t => {
+      const points = t.split(' ').map(p => p.split(',').map(Number));
+      const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+      poly.setAttribute('points', points.map(p => p.join(',')).join(' '));
+      meshGroup.appendChild(poly);
+    });
+  }
+
+  function selectMapArea(el, area) {
+    algoParams.mapping.area = area;
+    el.parentElement.querySelectorAll('.algo-chip').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    
+    const names = { lips: '唇部', eyeshadow: '眼影', blush: '腮红', foundation: '底妆' };
+    const triCounts = { lips: 128, eyeshadow: 96, blush: 64, foundation: 256 };
+    const qualities = { lips: 98, eyeshadow: 95, blush: 92, foundation: 88 };
+    document.getElementById('triCount').textContent = triCounts[area];
+    document.getElementById('warpQuality').textContent = qualities[area];
+    showToast('映射区域：' + names[area]);
+  }
+
+  function updateFeather(val) {
+    algoParams.mapping.feather = parseInt(val);
+    document.getElementById('featherVal').textContent = val + '%';
+    const blur = val / 20;
+    const filter = document.getElementById('lipFeather');
+    if (filter) {
+      const blurNode = filter.querySelector('feGaussianBlur');
+      if (blurNode) blurNode.setAttribute('stdDeviation', blur);
+    }
+    const upperLip = document.getElementById('upperLipPath');
+    const lowerLip = document.getElementById('lowerLipPath');
+    if (upperLip) upperLip.setAttribute('filter', val > 5 ? 'url(#lipFeather)' : '');
+    if (lowerLip) lowerLip.setAttribute('filter', val > 5 ? 'url(#lipFeather)' : '');
+  }
+
+  function updateWarp(val) {
+    algoParams.mapping.warp = parseInt(val);
+    document.getElementById('warpVal').textContent = val + '%';
+  }
+
+  function selectMapMethod(el, method) {
+    algoParams.mapping.method = method;
+    el.parentElement.querySelectorAll('.algo-seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    showToast('映射方式：' + el.textContent);
+  }
+
+  function toggleMesh() {
+    algoParams.mapping.mesh = !algoParams.mapping.mesh;
+    document.getElementById('meshSwitch').classList.toggle('active', algoParams.mapping.mesh);
+    const mesh = document.getElementById('triangle-mesh');
+    if (mesh) mesh.style.display = algoParams.mapping.mesh ? '' : 'none';
+  }
+
+  function selectExprFit(el, mode) {
+    algoParams.mapping.exprFit = mode;
+    el.parentElement.querySelectorAll('.algo-seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    showToast('表情适配：' + el.textContent);
+  }
+
+  // ===== Color Blending Module =====
+  function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 0, g: 0, b: 0 };
+  }
+
+  function rgbToHex(r, g, b) {
+    return '#' + [r, g, b].map(x => {
+      const hex = Math.round(Math.max(0, Math.min(255, x))).toString(16);
+      return hex.length === 1 ? '0' + hex : hex;
+    }).join('');
+  }
+
+  function softLightBlend(base, blend, opacity) {
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      const b = base[c] / 255;
+      const s = blend[c] / 255;
+      let r;
+      if (s < 0.5) {
+        r = b - (1 - 2 * s) * b * (1 - b);
+      } else {
+        r = b + (2 * s - 1) * (Math.sqrt(b) - b);
+      }
+      result[c] = (b + (r - b) * opacity / 100) * 255;
+    }
+    return result;
+  }
+
+  function overlayBlend(base, blend, opacity) {
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      const b = base[c] / 255;
+      const s = blend[c] / 255;
+      let r = b < 0.5 ? 2 * b * s : 1 - 2 * (1 - b) * (1 - s);
+      result[c] = (b + (r - b) * opacity / 100) * 255;
+    }
+    return result;
+  }
+
+  function multiplyBlend(base, blend, opacity) {
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      const r = (base[c] * blend[c]) / 255;
+      result[c] = base[c] + (r - base[c]) * opacity / 100;
+    }
+    return result;
+  }
+
+  function screenBlend(base, blend, opacity) {
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      const r = 255 - ((255 - base[c]) * (255 - blend[c])) / 255;
+      result[c] = base[c] + (r - base[c]) * opacity / 100;
+    }
+    return result;
+  }
+
+  function normalBlend(base, blend, opacity) {
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      result[c] = base[c] + (blend[c] - base[c]) * opacity / 100;
+    }
+    return result;
+  }
+
+  function colorBlend(base, blend, opacity) {
+    const baseLum = 0.299 * base.r + 0.587 * base.g + 0.114 * base.b;
+    const blendLum = 0.299 * blend.r + 0.587 * blend.g + 0.114 * blend.b;
+    const diff = baseLum - blendLum;
+    const result = {};
+    for (const c of ['r', 'g', 'b']) {
+      result[c] = base[c] + (blend[c] + diff - base[c]) * opacity / 100;
+    }
+    return result;
+  }
+
+  function updateBlendResult() {
+    const baseColor1 = hexToRgb('#f5d5c0');
+    const baseColor2 = hexToRgb('#e8b89a');
+    const lipColor = hexToRgb(algoParams.blending.lipColor);
+    const opacity = algoParams.blending.opacity;
+    const mode = algoParams.blending.mode;
+    const lighting = algoParams.blending.lighting / 100;
+    
+    const blendFn = {
+      'soft-light': softLightBlend,
+      'overlay': overlayBlend,
+      'multiply': multiplyBlend,
+      'screen': screenBlend,
+      'normal': normalBlend,
+      'color': colorBlend
+    }[mode] || softLightBlend;
+    
+    const result1 = blendFn(baseColor1, lipColor, opacity);
+    const result2 = blendFn(baseColor2, lipColor, opacity);
+    
+    const lightFactor = 0.7 + lighting * 0.6;
+    const c1 = rgbToHex(result1.r * lightFactor, result1.g * lightFactor, result1.b * lightFactor);
+    const c2 = rgbToHex(result2.r * lightFactor, result2.g * lightFactor, result2.b * lightFactor);
+    
+    const swatch = document.getElementById('blendResultSwatch');
+    if (swatch) {
+      swatch.style.background = `linear-gradient(135deg, ${c1} 0%, ${c2} 100%)`;
+    }
+    
+    const layers = document.querySelectorAll('.algo-layer-item');
+    if (layers.length >= 1) {
+      const alphaSpan = layers[0].querySelector('.algo-layer-alpha');
+      if (alphaSpan) alphaSpan.textContent = opacity + '%';
+    }
+  }
+
+  function selectBlendMode(el, mode) {
+    algoParams.blending.mode = mode;
+    el.parentElement.querySelectorAll('.algo-mode-item').forEach(i => i.classList.remove('active'));
+    el.classList.add('active');
+    
+    const modeNames = {
+      'soft-light': 'Soft Light',
+      'overlay': 'Overlay',
+      'multiply': 'Multiply',
+      'screen': 'Screen',
+      'normal': 'Normal',
+      'color': 'Color'
+    };
+    const firstLayer = document.querySelector('.algo-layer-item span:nth-child(2)');
+    if (firstLayer) firstLayer.textContent = '口红层 - ' + modeNames[mode];
+    
+    updateBlendResult();
+  }
+
+  function updateOpacity(val) {
+    algoParams.blending.opacity = parseInt(val);
+    document.getElementById('opacityVal').textContent = val + '%';
+    updateBlendResult();
+  }
+
+  function selectLipColor(el, color) {
+    algoParams.blending.lipColor = color;
+    el.parentElement.querySelectorAll('.algo-color-dot').forEach(d => d.classList.remove('active'));
+    el.classList.add('active');
+    updateBlendResult();
+  }
+
+  function selectTexture(el, texture) {
+    algoParams.blending.texture = texture;
+    el.parentElement.querySelectorAll('.algo-seg').forEach(s => s.classList.remove('active'));
+    el.classList.add('active');
+    const names = { matte: '哑光', satin: '缎光', gloss: '镜面', pearl: '珠光' };
+    showToast('材质质感：' + names[texture]);
+  }
+
+  function updateHighlight(val) {
+    algoParams.blending.highlight = parseInt(val);
+    document.getElementById('highlightVal').textContent = val + '%';
+    const layers = document.querySelectorAll('.algo-layer-item');
+    if (layers.length >= 2) {
+      const alphaSpan = layers[1].querySelector('.algo-layer-alpha');
+      if (alphaSpan) alphaSpan.textContent = val + '%';
+    }
+    updateBlendResult();
+  }
+
+  function updateLighting(val) {
+    algoParams.blending.lighting = parseInt(val);
+    document.getElementById('lightingVal').textContent = val + '%';
+    updateBlendResult();
+  }
+
+  function resetAlgoParams() {
+    algoParams = {
+      keypoints: { show: true, mesh: false, labels: false, size: 2.5, model: 'light', smooth: 'ema' },
+      mapping: { area: 'lips', feather: 35, warp: 80, method: 'triangle', mesh: false, exprFit: 'basic' },
+      blending: { mode: 'soft-light', opacity: 75, lipColor: '#c44569', texture: 'matte', highlight: 40, lighting: 50 }
+    };
+    
+    showToast('参数已重置');
+    setTimeout(() => {
+      document.getElementById('algo-lab-overlay').classList.remove('show');
+      setTimeout(() => openAlgoLab(), 350);
+    }, 100);
+  }
+
+  function applyAlgoParams() {
+    showToast('算法参数已应用到试妆');
+    closeAlgoLab();
   }
 
   // ===== Mirror Settings & Modes =====
